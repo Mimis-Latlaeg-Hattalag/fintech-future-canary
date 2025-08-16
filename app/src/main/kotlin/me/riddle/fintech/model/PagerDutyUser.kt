@@ -11,9 +11,7 @@ import kotlinx.serialization.Serializable
  * 70+ lines, manual builders, defensive copying, @JsonAnySetter complexity.
  * Kotlin: 27 lines, immutable by default, serialization built-in.
  *
- * FixMe: Implement usage.
  */
-@Suppress("unused")
 @Serializable
 data class PagerDutyUser(
     val id: String,
