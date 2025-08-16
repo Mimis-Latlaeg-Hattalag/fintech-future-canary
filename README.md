@@ -40,7 +40,7 @@ In the production system we would add tests, but those are for the business logi
 
 ## IntelliJ IDEA Bug - IMPORTANT
 
-I am suing Gradle 9 and IDEA with create a bad RunConfig for you.<br/>
+I am using Gradle 9 and IDEA with create a bad RunConfig for you.<br/>
 So, I checked in one I rolled by hand for your convenience.
 
 ## Appearance:
