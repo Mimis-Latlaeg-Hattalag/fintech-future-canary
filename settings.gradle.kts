@@ -2,6 +2,7 @@ pluginManagement {
 
     val versionOfToolchainsFoojayResolver: String by extra
     val verKotlin: String by extra
+    val verKotlinSerialization: String by extra
 
 
     repositories {
@@ -12,6 +13,7 @@ pluginManagement {
     plugins {
         id("org.gradle.toolchains.foojay-resolver-convention") version versionOfToolchainsFoojayResolver
         kotlin("jvm") version verKotlin
+        kotlin("plugin.serialization") version verKotlinSerialization
     }
 }
 

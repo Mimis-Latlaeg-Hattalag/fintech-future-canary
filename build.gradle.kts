@@ -4,6 +4,7 @@ private val log by lazy { LoggerFactory.getLogger("me.riddle.fintech.canary.buil
 
 plugins {
     kotlin("jvm") apply false
+    kotlin("plugin.serialization") apply false
 }
 
 allprojects {

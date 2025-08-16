@@ -6,8 +6,10 @@ private val log by lazy { LoggerFactory.getLogger("me.riddle.fintech.canary.buil
 
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
     application
 }
+
 
 java {
     toolchain {
@@ -30,12 +32,22 @@ dependencies {
     api(libs.slf4j.api)
     implementation(libs.logback.classic)
 
-    // Use the Kotlin JUnit 5 integration.
+    // Add these Ktor dependencies:
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.serialization.kotlinx.json)
+
+    // Add Kotlin coroutines and serialization:
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Your existing test dependencies stay as they are:
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation(libs.junit.jupiter.engine)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
-
 tasks.named<Test>("test") {
     useJUnitPlatform()
 }
