@@ -29,33 +29,31 @@ dependencies {
     implementation(gradleApi())
     implementation(platform(kotlin("bom")))
 
-    api(libs.slf4j.api)
-    implementation(libs.logback.classic)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.serialization.json)
 
-    // Add these Ktor dependencies:
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.cio)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.serialization.kotlinx.json)
 
-    // Add Kotlin coroutines and serialization:
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.serialization.json)
+    api(libs.slf4j.api)
+    implementation(libs.logback.classic)
 
-    // Your existing test dependencies stay as they are:
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation(libs.kotlin.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
+
 tasks.named<Test>("test") {
     useJUnitPlatform()
 }
 
+// A known Gradle 9 quirk - they also use the `stdlib`
 tasks.withType<Zip>().configureEach {
-    duplicatesStrategy = DuplicatesStrategy.WARN
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
-
 tasks.withType<Tar>().configureEach {
-    duplicatesStrategy = DuplicatesStrategy.WARN
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

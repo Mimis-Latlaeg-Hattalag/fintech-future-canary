@@ -12,6 +12,7 @@ pluginManagement {
 
     plugins {
         id("org.gradle.toolchains.foojay-resolver-convention") version versionOfToolchainsFoojayResolver
+        // Note; plugins are not in TOML intentionally
         kotlin("jvm") version verKotlin
         kotlin("plugin.serialization") version verKotlinSerialization
     }
