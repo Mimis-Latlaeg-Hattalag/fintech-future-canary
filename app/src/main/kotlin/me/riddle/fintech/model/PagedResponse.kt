@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package me.riddle.fintech.model
 
 import kotlinx.serialization.Serializable
@@ -11,7 +9,6 @@ import kotlinx.serialization.Serializable
  * 100+ lines with defensive copying, validation, calculated properties.
  * Kotlin: 20 lines, immutable, with extension functions for the rest.
  *
- * FixMe: Implement usage.
  */
 @Serializable
 data class PagedResponse<T>(
@@ -23,10 +20,13 @@ data class PagedResponse<T>(
 ) {
     // Simple computed properties
     val hasMore: Boolean get() = more
-    val isEmpty: Boolean get() = users.isEmpty()
+    @Suppress("unused")
+    val isEmpty: Boolean get() = users.isEmpty()                        // Is expected in actual use.
     val nextOffset: Int get() = offset + limit
 }
 
 // Extension functions for clean pagination
-fun <T> PagedResponse<T>.isFirstPage(): Boolean = offset == 0
-fun <T> PagedResponse<T>.currentPage(): Int = (offset / limit) + 1
+@Suppress("unused")
+fun <T> PagedResponse<T>.isFirstPage(): Boolean = offset == 0           // Is expected in actual use
+@Suppress("unused")
+fun <T> PagedResponse<T>.currentPage(): Int = (offset / limit) + 1      // Is expected in actual use

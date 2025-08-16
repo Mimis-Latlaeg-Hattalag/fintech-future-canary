@@ -22,7 +22,7 @@ java {
 
 application {
     log.info("\t|=> Riddle me that Java Application SET to    -> ${project.name} : ${project.version}.")
-    mainClass = "me.riddle.fintech.AppKt"
+    mainClass.set("me.riddle.fintech.AppKt")
 }
 
 dependencies {

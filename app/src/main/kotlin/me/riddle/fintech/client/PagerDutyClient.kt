@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package me.riddle.fintech.client
 
 import io.ktor.client.*
@@ -29,7 +27,6 @@ import me.riddle.fintech.model.PagerDutyUser
  * Java: 80+ lines, no connection pooling, no retry, manual JSON parsing
  * Kotlin: 40 lines with all production features included!
  *
- * FixMe: Implement usage.
  */
 class PagerDutyClient(private val apiToken: String) {
 
